@@ -30,6 +30,11 @@ library(tidyverse)
 
 #' **Data Visualization**
 
+#' Exercise 1: Using ggplot to graph variables
+
+exerciseVisual <- ggplot(data = transaction_data) 
+exerciseVisual
+
 #' **Data Modeling** 
 #' 
 #' Let's look at some simple modeling -- e.g., simple regression & line fit
