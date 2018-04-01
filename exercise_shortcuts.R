@@ -24,15 +24,19 @@ library(completejourney)
 library(ggplot2)
 library(tidyverse)
 
+transaction_data
+
 # Exercises -------------------------------------------------------
 
 #' **Data Wrangling** ---------------------------------------------
+ 
+#' Will need to mutate some variables, make the data frame smaller for later visualization
 
 #' **Data Visualization** -----------------------------------------
 
 #' Exercise 1: Using ggplot to graph variables
 
-exerciseVisual <- ggplot(data = transaction_data) + 
+exerciseVisual <- ggplot(data = transaction_data, aes(x = basket_id, y = quantity)) + 
   geom_bar()
 exerciseVisual
 
