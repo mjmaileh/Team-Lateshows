@@ -31,6 +31,16 @@ library(tidyverse)
 #' **Data Visualization**
 
 #' **Data Modeling** 
+#' 
+#' Let's look at some simple modeling -- e.g., simple regression & line fit
+
+LineFit <- lm(Corsi ~ RelCF, data = BOS_NSH) # creating the variable needed
+qqPlot(LineFit, main = "QQ Plot") # the qqplot
+leveragePlots(LineFit) # see if the data points are correlated
+spreadLevelPlot(LineFit) 
+summary(LineFit) # gives all the numbers associated with a regression!
+LineFit 
+
 
 
 
