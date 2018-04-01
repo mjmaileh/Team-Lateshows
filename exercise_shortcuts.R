@@ -1,6 +1,6 @@
 # R Shortcuts with Team Lateshows
 # April 3, 2018
-# DJ Jazzy Jeff
+# Kristina Kelhofer, Noah Rodammer, Yifan Wang, Robert Papel, Ousmane Diaby
 
 
 # RStudio Shortcuts ------------------------------------------------
