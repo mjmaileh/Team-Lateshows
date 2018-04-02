@@ -78,7 +78,7 @@
 #' Delete Word Right	                         Option+Delete
 #' Delete to Line End		                       Ctrl+K
 #' Delete to Line Start	                    	 Option+Backspace
-#' Indent	Tab                 Tab (at beginning of line)
+#' Indent	Tab             Tab (at beginning of line) - both
 #'    (at beginning of line)	
 #' Insert assignment      Alt+-	               Option+-
 #'    operator	
@@ -102,10 +102,14 @@
 #' Stage/Unstage 
 #'   and move to next 	  Enter	               Enter
 
+#' **Session**
+#' Quit Session           Ctrl+Q	             Command+Q
+#'    (desktop only)	
+#' Restart R Session	    Ctrl+Shift+F10	     Command+Shift+F10
+
 # Libraries -------------------------------------------------------
 
 library(completejourney)
-library(ggplot2)
 library(tidyverse)
 
 transaction_data
@@ -114,26 +118,51 @@ transaction_data
 
 #' **Data Wrangling** ---------------------------------------------
  
-#' Will need to mutate some variables, make the data frame smaller for later visualization
+#' Will need to mutate some variables, make the data frame smaller for later
+#' visualization (from a to b, have cool things in the plots, and a few common
+#' shortcuts!!!)
 
+transaction_data   # cmd + enter
+transaction_data   # cmd + shift +c // (shift+enter gets out of it)
+ # restart r - (cmd+shift+r) no function!!! (secret menu)
+
+my_transaction_data <- transaction_data %>% left_join(product, by = "product_id") #nothing in global
+
+
+# do some arithmetic! -- ctrl+2, for the console
+
+transaction_data   # cmd+shift+m for the pipe!
+  
+#' Let's mutate some variables!
+
+my_transaction_data %>%
+  filter(commodity_desc %in% c('SOFT DRINKS', 'CHEESE')) %>%
+  group_by(commodity_desc, brand) %>%
+  ggplot() + 
+  geom_bar(
+    mapping  = aes(x = commodity_desc)
+  )
+
+#' cmd+alt+b runs everything to where cursor is(**run after each section!!!!**)
+  
+my_transaction_data %>% 
+  count(commodity_desc) %>% 
+  arrange(-n) %>%  # shows that soft drinks are the most sold
+  print(n = 15)
+  
 #' **Data Visualization** -----------------------------------------
 
 #' Exercise 1: Using ggplot to graph variables
 
-exerciseVisual <- ggplot(data = transaction_data, aes(x = basket_id, y = quantity)) + 
-  geom_bar()
-exerciseVisual
+#' transaction_data   # alt + enter (intro in visualization)
 
-#' **Data Modeling** ----------------------------------------------
-#' 
-#' Let's look at some simple modeling -- e.g., simple regression & line fit
+#' With the plot - to zoom all the way in, it is shift+cntrl+6 // or 0! (make a slide)
 
-LineFit <- lm(Corsi ~ RelCF, data = BOS_NSH) # creating the variable needed
-qqPlot(LineFit, main = "QQ Plot") # the qqplot
-leveragePlots(LineFit) # see if the data points are correlated
-spreadLevelPlot(LineFit) 
-summary(LineFit) # gives all the numbers associated with a regression!
-LineFit 
+
+
+
+
+# Let's knit! - (cmd+shift+k)
 
 
 
