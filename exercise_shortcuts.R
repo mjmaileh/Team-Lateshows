@@ -2,13 +2,15 @@
 #' Title: R Shortcuts with Team Lateshows
 #' Date: April 3, 2018
 #' Who: K. Kelhofer, N. Rodammer, Y. Wang, R. Papel, O. Diaby
-#' Get (Short)cut in Just 20 Easy Minutes! 
+#' Git (Short)Cut in Just 20 Easy Minutes! 
 #' ------------------------
 
-# Unfold all: cmd+shift+option+o
-# Fold all:   cmd+shift+o
+#' Unfold all: cmd+shift+option+o
+#' Fold all:   cmd+shift+o
 
-# Shortcuts! --------------------------------------------------------------
+#' HUGE: to bring up shortcut menu, use: option+shift+k
+
+########## Shortcuts! ##########
 
 #' Description            Windows               Mac 
 #' ----------------------------------------------------------------
@@ -24,7 +26,7 @@
 #' Interrupt currently    Esc                   Esc
 #'    executing command	
 #' Change WD	            Ctrl+Shift+H	        Ctrl+Shift+H
-
+#' ----------------------------------------------------------------
 #' **Source**
 #' Move cursor            Ctrl+1	             Ctrl+1
 #'    to Source Editor	
@@ -65,7 +67,7 @@
 #' Jump to Matching       Ctrl+P	             Ctrl+P
 #'    Brace/Paren	
 #' Find and Replace	      Ctrl+F	             Command+F
-
+#' ----------------------------------------------------------------
 #' **Editing**
 #' Undo                  	Ctrl+Z	             Command+Z
 #' Redo                   Ctrl+Shift+Z	       Command+Shift+Z
@@ -85,7 +87,7 @@
 #' Insert assignment      Alt+-	               Option+-
 #'    operator	
 #' Insert pipe operator	  Ctrl+Shift+M	       Cmd+Shift+M
-
+#' ----------------------------------------------------------------
 #' **Views**		
 #' Move  to Source Editor	Ctrl+1	             Ctrl+1
 #' Move focus to Console	Ctrl+2           	   Ctrl+2
@@ -97,40 +99,39 @@
 #' Show Environment	      Ctrl+8	             Ctrl+8
 #' Show Git/SVN	          Ctrl+9	             Ctrl+9
 #' Show Build            	Ctrl+0	             Ctrl+0
-
+#' ----------------------------------------------------------------
 #' **Git/SVN**
 #' Commit changes	        Ctrl+Alt+M	         Ctrl+Option+M
 #' Stage/Unstage      	  Spacebar	           Spacebar
 #' Stage/Unstage 
 #'   and move to next 	  Enter	               Enter
-
+#' ----------------------------------------------------------------
 #' **Session**
 #' Quit Session           Ctrl+Q	             Command+Q
 #'    (desktop only)	
 #' Restart R Session	    Ctrl+Shift+F10	     Command+Shift+F10
 
-# Libraries! -------------------------------------------------------
+########## Libraries! ########## 
 
-# install.packages("tidyverse")  # cmd + shift +c
+# install.packages("tidyverse")  # cmd + shift +c to comment out
 # install.packages("completejourney")
+
 library(completejourney)
 library(tidyverse)
 
-# HUGE: to bring up shortcut menu, use: option+shift+k
-
 #' Exercises -------------------------------------------------------
 
-# Data Wrangling ----------------------------------------------------------
+########## Data Wrangling! ##########
 
-transaction_data   # cmd + enter// good spot to pull up transaction_data table, to view variables, etc
+transaction_data  # cmd + enter and a good spot to pull up transaction_data table, to view variables, etc.
 
 my_transaction_data <- transaction_data %>% left_join(product, by = "product_id")
 
-  # assignment operator, alt+underscore button
+  # assignment operator, alt+underscore 
   # pipe operator, cmd+shift+m
   # FOLD: cmd+option+l
 
-# Quick Arithmetic
+#' **Quick Arithmetic**
 
 my_transaction_data %>% # pipe operator
   arrange(-sales_value) %>% # arranges sales_values by desc order
@@ -158,7 +159,7 @@ my_transaction_data %>%
 #' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
   
   
-# Data Visualization ------------------------------------------------------
+########## Data Visualization! ##########
 
 
 #' Using ggplot to graph variables
@@ -174,8 +175,6 @@ my_transaction_data %>%
 #' alt+enter (to run where cursor is)
 #' making plot bigger and smaller, ctrl+shift+6 to enlarge 
 #' ctrl+shift+0 to return
-
-
 
 # Let's knit! - (cmd+shift+k)
 
