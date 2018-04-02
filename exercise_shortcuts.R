@@ -2,11 +2,13 @@
 #' Title: R Shortcuts with Team Lateshows
 #' Date: April 3, 2018
 #' Who: K. Kelhofer, N. Rodammer, Y. Wang, R. Papel, O. Diaby
-#' 1980s? Maybe not so much!
+#' Get (Short)cut in Just 20 Easy Minutes! 
 #' ------------------------
 
+# Unfold all: cmd+shift+option+o
+# Fold all:   cmd+shift+o
 
-#' RStudio Shortcuts ------------------------------------------------
+# Shortcuts! --------------------------------------------------------------
 
 #' Description            Windows               Mac 
 #' ----------------------------------------------------------------
@@ -107,58 +109,71 @@
 #'    (desktop only)	
 #' Restart R Session	    Ctrl+Shift+F10	     Command+Shift+F10
 
-# Libraries -------------------------------------------------------
+# Libraries! -------------------------------------------------------
 
+# install.packages("tidyverse")  # cmd + shift +c
+# install.packages("completejourney")
 library(completejourney)
 library(tidyverse)
 
-transaction_data
+# HUGE: to bring up shortcut menu, use: option+shift+k
 
-# Exercises -------------------------------------------------------
+#' Exercises -------------------------------------------------------
 
-#' **Data Wrangling** ---------------------------------------------
+# Data Wrangling ----------------------------------------------------------
+
+transaction_data   # cmd + enter// good spot to pull up transaction_data table, to view variables, etc
+
+my_transaction_data <- transaction_data %>% left_join(product, by = "product_id")
+
+  # assignment operator, alt+underscore button
+  # pipe operator, cmd+shift+m
+  # FOLD: cmd+option+l
+
+# Quick Arithmetic
+
+my_transaction_data %>% # pipe operator
+  arrange(-sales_value) %>% # arranges sales_values by desc order
+  select(commodity_desc, sales_value) # selects the columns we want
+
+#' jump to console, using ctrl+2, and add the top three sales_values together
+#' the answer = 1977
  
-#' Will need to mutate some variables, make the data frame smaller for later
-#' visualization (from a to b, have cool things in the plots, and a few common
-#' shortcuts!!!)
+#' **Restart R** 
+ 
+#' restart r - (cmd+shift+r) no function!!! (secret menu!)
+#' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
 
-transaction_data   # cmd + enter
-transaction_data   # cmd + shift +c // (shift+enter gets out of it)
- # restart r - (cmd+shift+r) no function!!! (secret menu)
+#' **Wrangling** 
 
-my_transaction_data <- transaction_data %>% left_join(product, by = "product_id") #nothing in global
+my_transaction_data %>% 
+  count(commodity_desc) %>% 
+  arrange(-n) %>%  # shows that soft drinks are sold most
+  print(n = 15)
 
 
-# do some arithmetic! -- ctrl+2, for the console
+#' **Restart R** 
 
-transaction_data   # cmd+shift+m for the pipe!
+#' restart r - (cmd+shift+r) no function!!! (secret menu!)
+#' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
   
-#' Let's mutate some variables!
+  
+# Data Visualization ------------------------------------------------------
 
-my_transaction_data %>%
-  filter(commodity_desc %in% c('SOFT DRINKS', 'CHEESE')) %>%
+
+#' Using ggplot to graph variables
+ 
+my_transaction_data %>% 
+  filter(commodity_desc %in% c('SOFT DRINKS', 'YOGURT')) %>%
   group_by(commodity_desc, brand) %>%
   ggplot() + 
   geom_bar(
-    mapping  = aes(x = commodity_desc)
-  )
+    mapping = aes(x = commodity_desc)
+  ) 
 
-#' cmd+alt+b runs everything to where cursor is(**run after each section!!!!**)
-  
-my_transaction_data %>% 
-  count(commodity_desc) %>% 
-  arrange(-n) %>%  # shows that soft drinks are the most sold
-  print(n = 15)
-  
-#' **Data Visualization** -----------------------------------------
-
-#' Exercise 1: Using ggplot to graph variables
-
-#' transaction_data   # alt + enter (intro in visualization)
-
-#' With the plot - to zoom all the way in, it is shift+cntrl+6 // or 0! (make a slide)
-
-
+#' alt+enter (to run where cursor is)
+#' making plot bigger and smaller, ctrl+shift+6 to enlarge 
+#' ctrl+shift+0 to return
 
 
 
