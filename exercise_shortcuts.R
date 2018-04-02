@@ -8,9 +8,10 @@
 #' Unfold all: cmd+shift+option+o
 #' Fold all:   cmd+shift+o
 
-#' HUGE: to bring up shortcut menu, use: option+shift+k
+#' HUGE: To bring up shortcut menu, use: option+shift+k
 
 ########## Shortcuts! ##########
+
 
 #' Description            Windows               Mac 
 #' ----------------------------------------------------------------
@@ -116,46 +117,58 @@
 # install.packages("tidyverse")  # cmd + shift +c to comment out
 # install.packages("completejourney")
 
+#' Use cmd+shift+c to comment out the install.package commands, if you already
+#' have them installed!
+
 library(completejourney)
 library(tidyverse)
 
-#' Exercises -------------------------------------------------------
+#' ---- ###### **Exercises** ####### ----
+
 
 ########## Data Wrangling! ##########
 
-transaction_data  # cmd + enter and a good spot to pull up transaction_data table, to view variables, etc.
+
+#' **Bringing Up Transaction Data**:
+
+transaction_data  # cmd + enter
+
+# A good spot to pull up transaction_data table, to view variables, etc.
 
 my_transaction_data <- transaction_data %>% left_join(product, by = "product_id")
 
-  # assignment operator, alt+underscore 
-  # pipe operator, cmd+shift+m
-  # FOLD: cmd+option+l
+#' Assignment operator, alt+underscore 
+#' Pipe operator, cmd+shift+m
+#' FOLD: cmd+option+l
 
-#' **Quick Arithmetic**
 
-my_transaction_data %>% # pipe operator
-  arrange(-sales_value) %>% # arranges sales_values by desc order
-  select(commodity_desc, sales_value) # selects the columns we want
+#' **Quick Arithmetic**:
 
-#' jump to console, using ctrl+2, and add the top three sales_values together
-#' the answer = 1977
+my_transaction_data %>% # Pipe operator
+  arrange(-sales_value) %>% # Arranges sales_values by desc order
+  select(commodity_desc, sales_value) # Selects the columns we want
+
+#' Jump to console, using ctrl+2, and add the top three sales_values together.
+#' Answer = 1977
  
-#' **Restart R** 
+
+#' **Restart R**:
  
-#' restart r - (cmd+shift+r) no function!!! (secret menu!)
+#' Restart r - (cmd+shift+0)  (like a secret menu!)
 #' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
 
-#' **Wrangling** 
 
-my_transaction_data %>% 
-  count(commodity_desc) %>% 
-  arrange(-n) %>%  # shows that soft drinks are sold most
+#' **Wrangling**:
+
+my_transaction_data %>% # Using the pipe operator, again
+  count(commodity_desc) %>% # Descending oder
+  arrange(-n) %>%  # Shows that soft drinks are sold most
   print(n = 15)
 
 
-#' **Restart R** 
+#' **Restart R**:
 
-#' restart r - (cmd+shift+r) no function!!! (secret menu!)
+#' Restart r - (cmd+shift+r) no function!!! (secret menu!)
 #' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
   
   
@@ -164,19 +177,20 @@ my_transaction_data %>%
 
 #' Using ggplot to graph variables
  
-my_transaction_data %>% 
-  filter(commodity_desc %in% c('SOFT DRINKS', 'YOGURT')) %>%
+my_transaction_data %>% # More piping!
+  filter(commodity_desc %in% c('SOFT DRINKS', 'YOGURT')) %>% # Filter commodities
   group_by(commodity_desc, brand) %>%
-  ggplot() + 
+  ggplot() + # Plots to whatever aes() you map in the geom_bar
   geom_bar(
-    mapping = aes(x = commodity_desc)
+    mapping = aes(x = commodity_desc) # Gives bar plot
   ) 
 
 #' alt+enter (to run where cursor is)
-#' making plot bigger and smaller, ctrl+shift+6 to enlarge 
-#' ctrl+shift+0 to return
+#' Making plot bigger and smaller, ctrl+shift+6 to enlarge 
+#' And ctrl+shift+0 to return
 
-# Let's knit! - (cmd+shift+k)
+#' Let's knit! - (cmd+shift+k) - creates an HTML, MS Word, or PDF version of
+#' your code
 
 
 

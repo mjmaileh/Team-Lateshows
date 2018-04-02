@@ -127,65 +127,75 @@
 ########## Data Wrangling! ##########
 
 
-#' **Bringing Up Transaction Data**:
+#' **Bringing Up Transaction Data**
 
-transaction_data  # cmd + enter
+#' View transaction_data in the console (use the shortcuts!)
 
-# A good spot to pull up transaction_data table, to view variables, etc.
+#' Create a new varibale called my_transaction_data (use old transaction_data)
+#' And then use the pipe operator to do a left_join
+#' With (product, by = "product_id")
 
-my_transaction_data <- transaction_data %>% left_join(product, by = "product_id")
+
 
 #' Assignment operator, alt+underscore 
 #' Pipe operator, cmd+shift+m
 #' FOLD: cmd+option+l
 
 
-#' **Quick Arithmetic**:
+#' **Quick Arithmetic**
 
-my_transaction_data %>% # Pipe operator
-  arrange(-sales_value) %>% # Arranges sales_values by desc order
-  select(commodity_desc, sales_value) # Selects the columns we want
-
-#' Jump to console, using ctrl+2, and add the top three sales_values together.
-#' Answer = 1977
+#' Let's do some arithmetic in the console - but first use my_transaction_data
+#' To arrange() by (-sales_value) and use the pipe to
+#' select(commodity_desc, sales_value) all in the script
 
 
-#' **Restart R**:
-
-#' Restart r - (cmd+shift+0)  (like a secret menu!)
-#' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
-
-
-#' **Wrangling**:
-
-my_transaction_data %>% # Using the pipe operator, again
-  count(commodity_desc) %>% # Descending oder
-  arrange(-n) %>%  # Shows that soft drinks are sold most
-  print(n = 15)
+#' Now, jump to the console, using ctrl+2, and add the top three sales_values 
+#' together.
+#' 
+#' (Answer = 1977)
 
 
-#' **Restart R**:
+#' **Restart R**
 
+#' NOW, restart R - use the commands:
+#' Restart R - (cmd+shift+0)  (like a secret menu!)
+#' cmd+alt+b runs everything to where cursor is (run after each section!)
+
+
+#' **Wrangling**
+ 
+#' Let's do some wrangling, using the my_transaction_data!
+#' Use count() to get it in descending order and
+#' then use arrange() to show which soft drinks are sold most!
+#' We want the top 15, so which function do you use?
+
+
+
+
+#' **Restart R**
+
+#' NOW, restart R AGAIN - use the commands:
 #' Restart r - (cmd+shift+r) no function!!! (secret menu!)
-#' cmd+alt+b runs everything to where cursor is (run after each section!!!!)
+#' cmd+alt+b runs everything to where cursor is (run after each section!)
 
 
 ########## Data Visualization! ##########
 
 
-#' Using ggplot to graph variables
+#' **Using ggplot** 
 
-my_transaction_data %>% # More piping!
-  filter(commodity_desc %in% c('SOFT DRINKS', 'YOGURT')) %>% # Filter commodities
-  group_by(commodity_desc, brand) %>%
-  ggplot() + # Plots to whatever aes() you map in the geom_bar
-  geom_bar(
-    mapping = aes(x = commodity_desc) # Gives bar plot
-  ) 
+#' Again, let's pull up my_transaction_data with a pipe!
+#' Filter by commodity_desc and concatenate "SOFT DRINKS" and "YOGURT"
+#' Group b y the commodity_desc and brand.
+#' AND THEN, use ggplot to make a bar graph (Hint: use commodity_desc)
+
+
 
 #' alt+enter (to run where cursor is)
 #' Making plot bigger and smaller, ctrl+shift+6 to enlarge 
 #' And ctrl+shift+0 to return
+
+#' **Knit**
 
 #' Let's knit! - (cmd+shift+k) - creates an HTML, MS Word, or PDF version of
 #' your code
