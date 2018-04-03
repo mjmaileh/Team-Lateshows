@@ -24,6 +24,7 @@
 #' Press **Option+Command+O** to fold the code sections in this file. Then
 #' unfold them with **Shift+Option+Command+O**. Repeat this process *five*
 #' times.
+#' 
 #'
 #' As you can see, we're going to load some packages, then get into some
 #' data wrangling and data visualization. Let's do it!
