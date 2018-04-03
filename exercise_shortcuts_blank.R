@@ -7,41 +7,42 @@
 
 #' ## Gitting started
 #'
-#' Press **Control+1** to make sure your cursor is in the Source (i.e., this R
-#' script). Then begin moving your cursor down (with the down arrow on your
-#' keyboard) as we read on.
+#' Press **Control+1 (Ctrl+1)** to make sure your cursor is in the Source 
+#' (i.e., this R script). Then begin moving your cursor down (with the down 
+#' arrow on your keyboard) as we read on.
 #'
 #' For the next twenty minutes, we want to help you work through some exercises
-#' using nothing other than your keyboard. No matter what, **fight the urge** to use
-#' your trackpad! Let's start by bringing up the shortcut menu *five* times.
-#' Press **Shift+Option+K** to bring up the shortcut menu, then press **Esc** to
-#' take it down.
+#' using nothing other than your keyboard. No matter what, **fight the urge** 
+#' to use your trackpad! Let's start by bringing up the shortcut menu *five* 
+#' times. Press **Shift+Option+K (Shift+Alt+K)** to bring up the shortcut menu, 
+#' then press **Esc** to take it down.
 #'
 #' Great work! We can already see that you're building up some muscle memory.
 #'
 #' ## Where are we headed?
 #'
-#' Press **Option+Command+O** to fold the code sections in this file. Then
-#' unfold them with **Shift+Option+Command+O**. Repeat this process *five*
-#' times.
+#' Press **Option+Command+O (Alt+O)** to fold the code sections in this file. 
+#' Then unfold them with **Shift+Option+Command+O (Shift+Alt+O)**. Repeat this 
+#' process *five* times.
 #'
 #' As you can see, we're going to load some packages, then get into some
 #' data wrangling and data visualization. Let's do it!
 #' 
 #' ## Exercise 1
+#' 
+#' 
 # Loading packages --------------------------------------------------------
 #' Before we load the `tidyverse` and `completejourney` packages, move your
 #' cursor next to `install.packages("tidyverse")` (see below) and use
-#' **Shift+Command+C** to uncomment/comment this command. Repeat *ten* times to
-#' get the hang of the comment/uncomment shortcut. When you're done with this
-#' exercise, make sure the command is commented (you shouldn't need to install
-#' the tidyverse at this point in the semester!).
+#' **Shift+Command+C (Ctrl+Shift+c)** to uncomment/comment this command. 
+#' Repeat *ten* times to get the hang of the comment/uncomment shortcut. 
+#' When you're done with this exercise, make sure the command is commented (you shouldn't need to install the tidyverse at this point in the semester!).
 
 # install.packages("tidyverse")
 
 #' Now write `library(tidyverse)` and `library(completejourney)` on separate
-#' lines in the space provided below and use **Command+Enter** twice to load the
-#' `tidyverse` and `completejourney` packages.
+#' lines in the space provided below and use **Command+Enter (Ctrl+Enter)** 
+#' twice to load the `tidyverse` and `completejourney` packages.
 
 
 
@@ -52,8 +53,8 @@ library(completejourney)
 
 #' Where did your cursor end up after you loaded the `completejourney` package?
 #' The line above this one, that's right! Later we'll show you how to run code
-#' AND retain your cursor's position. For now, press **Command+Enter** *five*
-#' more times to reach the next exercise.
+#' AND retain your cursor's position. For now, press 
+#' **Command+Enter (Ctrl+Enter)** *five* more times to reach the next exercise.
 #' 
 #' ## Exercise 2
 # Data wrangling ----------------------------------------------------------
@@ -67,8 +68,8 @@ library(completejourney)
 #' With (product, by = "product_id")
 
 
-#' Assignment operator, alt+underscore 
-#' Pipe operator, cmd+shift+m
+#' Assignment operator, alt+underscore (alt+underscore)
+#' Pipe operator, cmd+shift+m (Ctrl+shift+m)
 
 
 #' **Quick Arithmetic**
@@ -78,8 +79,8 @@ library(completejourney)
 #' select(commodity_desc, sales_value) all in the script
 
 
-#' Now, jump to the console, using ctrl+2, and add the top three sales_values 
-#' together.
+#' Now, jump to the console, using ctrl+2 (ctrl+2), and add the top three 
+#' sales_values together.
 #' 
 #' (Answer = 1977)
 
@@ -87,8 +88,9 @@ library(completejourney)
 #' **Restart R**
 
 #' NOW, restart R - use the commands:
-#' Restart R - (cmd+shift+0)  (like a secret menu!)
-#' cmd+alt+b runs everything to where cursor is (run after each section!)
+#' Restart R - (cmd+shift+0) (ctrl+shift+F10) (like a secret menu!)
+#' cmd+alt+b (Ctrl+Alt+B) runs everything to where cursor is (run after each 
+#' section!)
 
 
 #' **Wrangling**
@@ -103,8 +105,9 @@ library(completejourney)
 #' **Restart R**
 
 #' NOW, restart R AGAIN - use the commands:
-#' Restart r - (cmd+shift+r) no function!!! 
-#' cmd+alt+b runs everything to where cursor is (run after each section!)
+#' Restart r - (cmd+shift+r) (ctrl+shift+F10) no function!!! 
+#' cmd+alt+b (Ctrl+Alt+B) runs everything to where cursor is (run after each 
+#' section!)
 
 ## Exercise 3
 # Data Visualization! ----------------------------------------------------------
@@ -117,16 +120,33 @@ library(completejourney)
 #' Group b y the commodity_desc and brand.
 #' AND THEN, use ggplot to make a bar graph (Hint: use commodity_desc)
 
+my_transaction_data %>% # More piping!
+  filter(commodity_desc %in% c('SOFT DRINKS', 'YOGURT')) %>% # Filter commodities
+  group_by(commodity_desc, brand) %>%
+  ggplot() + # Plots to whatever aes() you map in the geom_bar
+  geom_bar(
+    mapping = aes(x = commodity_desc) # Gives bar plot
+  ) 
+
+
+my_transaction_data %>% 
+  filter(commodity_desc %in% c('SOFT DRINKS', 'CHEESE')) %>% 
+  group_by(commodity_desc,brand) %>% 
+  ggplot() +
+  geom_bar(
+    mapping=aes(x=commodity_desc)
+  )
+
 
 
 #' alt+enter (to run where cursor is)
-#' Making plot bigger and smaller, ctrl+shift+6 to enlarge 
-#' And ctrl+shift+0 to return
+#' Making plot bigger and smaller, ctrl+shift+6 (ctrl+shift+6) to enlarge 
+#' And ctrl+shift+0 (ctrl+shift+0) to return
 
 #' **Knit**
 
-#' Let's knit! - (cmd+shift+k) - creates an HTML, MS Word, or PDF version of
-#' your code
+#' Let's knit! - (cmd+shift+k) (ctrl+shift+k)- creates an HTML, MS Word, or 
+#' PDF version of your code
 
 # Shortcuts ---------------------------------------------------------------
 #' Description     |      Windows     |         Mac 
