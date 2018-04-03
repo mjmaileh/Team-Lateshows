@@ -21,9 +21,16 @@
 #'
 #' ## Where are we headed?
 #'
+<<<<<<< HEAD
 #' Press **Option+Command+O (Alt+O)** to fold the code sections in this file. 
 #' Then unfold them with **Shift+Option+Command+O (Shift+Alt+O)**. Repeat this 
 #' process *five* times.
+=======
+#' Press **Option+Command+O** to fold the code sections in this file. Then
+#' unfold them with **Shift+Option+Command+O**. Repeat this process *five*
+#' times.
+#' 
+>>>>>>> 51172dea8d8f7abc1598e19c41cb2cffa8811e04
 #'
 #' As you can see, we're going to load some packages, then get into some
 #' data wrangling and data visualization. Let's do it!
