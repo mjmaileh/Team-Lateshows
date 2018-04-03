@@ -12,7 +12,7 @@
 #' keyboard) as we read on.
 #'
 #' For the next twenty minutes, we want to help you work through some exercises
-#' using nothing other than your keyboard. No matter what, fight the urge to use
+#' using nothing other than your keyboard. No matter what, **fight the urge** to use
 #' your trackpad! Let's start by bringing up the shortcut menu *five* times.
 #' Press **Shift+Option+K** to bring up the shortcut menu, then press **Esc** to
 #' take it down.
@@ -67,10 +67,8 @@ library(completejourney)
 #' With (product, by = "product_id")
 
 
-
 #' Assignment operator, alt+underscore 
 #' Pipe operator, cmd+shift+m
-#' FOLD: cmd+option+l
 
 
 #' **Quick Arithmetic**
@@ -102,15 +100,14 @@ library(completejourney)
 
 
 
-
 #' **Restart R**
 
 #' NOW, restart R AGAIN - use the commands:
-#' Restart r - (cmd+shift+r) no function!!! (secret menu!)
+#' Restart r - (cmd+shift+r) no function!!! 
 #' cmd+alt+b runs everything to where cursor is (run after each section!)
 
-
-########## Data Visualization! ##########
+## Exercise 3
+# Data Visualization! ----------------------------------------------------------
 
 
 #' **Using ggplot** 
